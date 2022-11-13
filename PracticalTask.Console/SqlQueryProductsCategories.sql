@@ -1,4 +1,4 @@
-﻿-- Create tables
+﻿-- Создание таблиц
 CREATE TABLE Products
 (
     Id int NOT NULL PRIMARY KEY,
@@ -17,7 +17,7 @@ CREATE TABLE ProductCategories
     CategoryId int NOT NULL FOREIGN KEY REFERENCES Categories(Id)
 )
 
--- SQL query
+-- SQL запрос
 SELECT product.ProductName, category.CategoryName
 FROM Products product
 LEFT JOIN ProductCategories productCategory

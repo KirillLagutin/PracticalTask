@@ -2,5 +2,6 @@
 
 public interface IFigure
 {
+    // Возвращаем площадь фигуры
     double GetFigureArea();
 }

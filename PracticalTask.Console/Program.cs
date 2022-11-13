@@ -1,4 +1,7 @@
-﻿/*
+﻿using FigureArea.Lib.Figures;
+using FigureArea.Lib.Interfaces;
+
+/*
     Напишите на C# библиотеку для поставки внешним клиентам, 
   которая умеет вычислять площадь круга по радиусу и треугольника 
   по трем сторонам. Дополнительно к работоспособности оценим:
@@ -12,9 +15,8 @@
  * Проверку на то, является ли треугольник прямоугольным 
 */
 
-using FigureArea.Lib.Figures;
-using FigureArea.Lib.Interfaces;
 
+// Пример работы библиотеки в консоли
 IFigure circle = new Circle(3);
 IFigure triangle = new Triangle(3, 4, 5);
 
@@ -34,6 +36,6 @@ Console.WriteLine($"Is this triangle right angled? = {rightTriangle}");
 */
  
 /*
-   Решение находится в этом проекте отдельным файлом
+   Файл с SQL запросом находится в этом проекте отдельным файлом
  */
  

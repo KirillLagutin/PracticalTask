@@ -13,17 +13,23 @@ public class Triangle : IFigure
     private static double _legOne;
     private static double _legTwo;
 
+    // Конструктор треугольника
     public Triangle(double sideA, double sideB, double sideC)
     {
+        // Проверяем чтобы все стороны были больше 0
         if (sideA > 0 && sideB > 0 && sideC > 0)
         {
             _sideA = sideA;
             _sideB = sideB;
             _sideC = sideC;
 
+            // Периметр - сумма трёх сторон
             _perimeter = _sideA + _sideB + _sideC;
+            // Гипотенуза - найбольшая сторона
             _hypotenuse = Math.Max(_sideA, Math.Max(_sideB, _sideC));
+            // Катет первый - найменьшая сторона
             _legOne = Math.Min(_sideA, Math.Min(_sideB, _sideC));
+            // Катет второй - периметр минус сумма гипотенузы и первого катета
             _legTwo = _perimeter - (_hypotenuse + _legOne);
         }
         else
@@ -31,7 +37,8 @@ public class Triangle : IFigure
             throw new Exception("Invalid sides");
         }
 
-        if (_hypotenuse > _perimeter - _hypotenuse)
+        // И эксепшен, если гипотенуза больше суммы катетов
+        if (_hypotenuse > _legOne + _legTwo)
         {
             throw new Exception
             (
@@ -40,8 +47,11 @@ public class Triangle : IFigure
         }
     }
     
+    // Возвращаем площадь фигуры (треугольника)
     public double GetFigureArea()
     {
+        // Площадь треуголиника равна квадратному корню из произведения
+        // полупериметра на три разности полуперитра минус каждая сторона
         var triangleArea = Math.Sqrt
         (
             (_perimeter / 2)
@@ -53,8 +63,12 @@ public class Triangle : IFigure
         return triangleArea;
     }
 
+    // Булевый метод определяет прямоугольный ли треугольник
+    // ...статический метод сделал, чтоб не править интерфейс
     public static bool RightTriangleTest()
     {
+        // Если гипотенуза в квадрате минус сумма квадратов катетов
+        // равна 0, то треугольник прямоугольный
         var rightTriangle = Math.Abs
         (
             Math.Pow(_hypotenuse, 2) 
