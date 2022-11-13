@@ -1,4 +1,4 @@
 # PracticalTask
-Test tasks for mindbox
+Тестовое задание для mindbox
 
 SQL запрос находится в консольном проекте
